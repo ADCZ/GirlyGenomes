@@ -22,6 +22,15 @@ CBF4 - Q9FJ93 - http://www.uniprot.org/uniprot/Q9FJ93
 
 Changing headers of proteins from comp_transcript_database:
 
-> sed 's/asmbl/Laura/g' Laura_comp | sed 's/|/_/g' | sed 's/ORF.*//' > Laura_comp_headers
+> sed 's/asmbl/Laura/g' Laura_comp | sed 's/|/_/g' | sed 's/ORF.*//' | sed 's/comp/Laura/g' > Laura_comp_headers
 
 cat Laura_comp_headers Lemtal_comp_headers Nerissa_comp_headers Temul_comp_headers /data/storage-02/ADRIAN_ANN/Perenne_input.fasta > Combined_compr_db.fasta
+
+makeblastdb -in Combined_compr_db.fasta -dbtype prot -out Combined_compr_db -title Combined_compr_db
+
+blastp -query ../8_CBF -db Combined_compr_db -outfmt 6 -evalue 1e-5 -num_alignments 300 > 8_with_compr_db.blp
+
+perl /data/storage_fast/ADCZ/Perl_scrips/Unique_column_elements.pl 8_with_compr_db.blp > 8_with_compr_headers
+
+CBF family approach 2: look for all CBF genes from Rice that I'm able to find. 
+
