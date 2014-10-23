@@ -34,3 +34,7 @@ perl /data/storage_fast/ADCZ/Perl_scrips/Unique_column_elements.pl 8_with_compr_
 
 CBF family approach 2: look for all CBF genes from Rice that I'm able to find. 
 
+/data/storage/TOOLS/bin/blat Unique_hits_Lemtal.fasta Lemtal_transcriptome_hits.fasta -noHead Scaffolder_input_CBF_Lemtal.psl
+
+sh L_RNA_scaffolder.sh -d ./ -i ../../Scaffolder_input_CBF_Lemtal.psl -j ../../Unique_hits_Lemtal.fasta -o ../../Lemtal/
+
