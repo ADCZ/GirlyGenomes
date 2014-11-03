@@ -38,3 +38,8 @@ CBF family approach 2: look for all CBF genes from Rice that I'm able to find.
 
 sh L_RNA_scaffolder.sh -d ./ -i ../../Scaffolder_input_CBF_Lemtal.psl -j ../../Unique_hits_Lemtal.fasta -o ../../Lemtal/
 
+NCBI TSA sequence submission!!!
+
+All transcriptomes: sed 's/>comp/>Laura/' Filtered.Laura_Assembly.ISOPCT.fasta |sed 's/ .*//g' > /data/storage-03/ADRIAN_LOLIUM_SPECIES/Transcriptome_assemblies
+
+exonerate -q ../Manual_realigning/Nerissa_6207.fasta -t ../Manual_realigning/scaffold_1662.fasta -m protein2dna --showtargetgff yes -n 1  > Nerissa_6207_exonerate
